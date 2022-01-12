@@ -1,10 +1,3 @@
-//const fetch = require('node-fetch');
-//fetch('https://memegen-link-examples-upleveled.netlify.app/').then((res)=>{
-//return resizeBy.json();
-//}).then((json)=>){
-//console.log(json);
-//}
-
 import fetch from 'node-fetch';
 
 function fetchData() {
@@ -15,3 +8,17 @@ function fetchData() {
   );
 }
 fetchData();
+
+fetch('https://memegen-link-examples-upleveled.netlify.app/')
+  .then(function (response) {
+    // The API call was successful!
+    return response.text();
+  })
+  .then(function (html) {
+    // This is the HTML from our response as a text string
+    console.log(html);
+  })
+  .catch(function (err) {
+    // There was an error
+    console.warn('Something went wrong.', err);
+  });
