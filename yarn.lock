@@ -1380,6 +1380,14 @@ array.prototype.flatmap@^1.2.5:
     define-properties "^1.1.3"
     es-abstract "^1.19.0"
 
+array@^0.4.3:
+  version "0.4.3"
+  resolved "https://registry.yarnpkg.com/array/-/array-0.4.3.tgz#9e0fb19fef3929cfb8bc040b32f1d54eaffedb91"
+  integrity sha1-ng+xn+85Kc+4vAQLMvHVTq/+25E=
+  dependencies:
+    emitter-component "~1.1.0"
+    to-function "~1.2.1"
+
 asn1@~0.2.3:
   version "0.2.6"
   resolved "https://registry.yarnpkg.com/asn1/-/asn1-0.2.6.tgz#0d3a7bb6e64e02a90c0303b31f292868ea09a08d"
@@ -2054,6 +2062,11 @@ electron-to-chromium@^1.4.17:
   version "1.4.43"
   resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.4.43.tgz#665c0cd8d5e7cce0ba78d90a514c8c813ca3bdbe"
   integrity sha512-PO3kEfcxPrti/4STbXvCkNIF4fgWvCKl2508e6UI7KomCDffpIfeBZLXsh5DK/XGsjUw3kwq6WEsi0MJTlGAdg==
+
+emitter-component@~1.1.0:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/emitter-component/-/emitter-component-1.1.1.tgz#065e2dbed6959bf470679edabeaf7981d1003ab6"
+  integrity sha1-Bl4tvtaVm/RwZ57avq95gdEAOrY=
 
 emoji-regex@^9.2.2:
   version "9.2.2"
@@ -3549,6 +3562,11 @@ prop-types@^15.7.2:
     object-assign "^4.1.1"
     react-is "^16.13.1"
 
+props-component@*:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/props-component/-/props-component-1.0.3.tgz#4b521bdf3332f32fc6d67483174b9d8db53ea1fe"
+  integrity sha1-S1Ib3zMy8y/G1nSDF0udjbU+of4=
+
 psl@^1.1.28, psl@^1.1.7:
   version "1.8.0"
   resolved "https://registry.yarnpkg.com/psl/-/psl-1.8.0.tgz#9326f8bcfb013adcc005fdff056acce020e51c24"
@@ -4002,6 +4020,13 @@ to-fast-properties@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/to-fast-properties/-/to-fast-properties-2.0.0.tgz#dc5e698cbd079265bc73e0377681a4e4e83f616e"
   integrity sha1-3F5pjL0HkmW8c+A3doGk5Og/YW4=
+
+to-function@~1.2.1:
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/to-function/-/to-function-1.2.1.tgz#7d2f341b11ffd534d42ad3e107f2bf93f88a2a6f"
+  integrity sha1-fS80GxH/1TTUKtPhB/K/k/iKKm8=
+  dependencies:
+    props-component "*"
 
 to-regex-range@^5.0.1:
   version "5.0.1"

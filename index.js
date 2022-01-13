@@ -1,3 +1,4 @@
+import array from 'array';
 // download html with fetch then parse with domparser api
 // nth child
 // To get the first n elements of an array, use:
@@ -27,7 +28,7 @@ const main = async () => {
   // console.info({ toString: 5 }['toString']); // 5
   // console.info({}['toString']);
 
-  console.log(memes);
+  console.log(memes.slice(0, 10));
 };
 
 main();

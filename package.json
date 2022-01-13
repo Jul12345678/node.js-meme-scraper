@@ -39,6 +39,7 @@
   "dependencies": {
     "Crawler": "^1.1.3",
     "Parser": "^0.0.1",
+    "array": "^0.4.3",
     "async": "^3.2.3",
     "axios": "^0.24.0",
     "body-parser": "^1.19.1",
