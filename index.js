@@ -1,24 +1,31 @@
+// download html with fetch then parse with domparser api
+// nth child
+// To get the first n elements of an array, use:
+// const slicedArray = array.slice(0, n);
+// const response = await fetch(
+//   'https://memegen-link-examples-upleveled.netlify.app/',
+// );
+// const body = await response.text();
+// console.log(body);
+import cheerio from 'cheerio';
 import fetch from 'node-fetch';
 
-function fetchData() {
-  fetch('https://memegen-link-examples-upleveled.netlify.app/').then(
-    (response) => {
-      console.log(response);
-    },
+const main = async () => {
+  const response = await fetch(
+    'https://memegen-link-examples-upleveled.netlify.app/',
   );
-}
-fetchData();
+  const body = await response.text();
 
-fetch('https://memegen-link-examples-upleveled.netlify.app/')
-  .then(function (response) {
-    // The API call was successful!
-    return response.text();
-  })
-  .then(function (html) {
-    // This is the HTML from our response as a text string
-    console.log(html);
-  })
-  .catch(function (err) {
-    // There was an error
-    console.warn('Something went wrong.', err);
-  });
+  const $ = cheerio.load(body);
+  const memes = $('#images')
+    .children()
+    .map(function (i, el) {
+      // this === el
+      return $(this).text();
+    })
+    .toArray();
+
+  console.log(memes);
+};
+
+main();
