@@ -21,9 +21,11 @@ const main = async () => {
     .children()
     .map(function (i, el) {
       // this === el
-      return $(this).text();
+      return $(this).find('img').attr('src');
     })
     .toArray();
+  // console.info({ toString: 5 }['toString']); // 5
+  // console.info({}['toString']);
 
   console.log(memes);
 };
