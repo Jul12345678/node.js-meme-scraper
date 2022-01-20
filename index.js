@@ -30,19 +30,26 @@ const main = async () => {
   const $ = cheerio.load(body);
   const memes = $('#images') // #images = parent element
     .children()
+    // Map = similar to object
     .map(function (i, el) {
       // this === el
       return $(this).find('img').attr('src'); // attr for images (not text())
-    });
+    })
+    .toArray();
+
+  // console.log(memes.slice(0, 10));
 };
-// Download Images into existing (or created) "./memes" file
+
+// Download Images into existing (or created) "./memes" folder
 for (let i = 0; i < 10; i++) {
+  // Rename Images
   const path =
     i === 9 ? `./memes/memes${i + 1}.jpg` : `./memes/memes0${i + 1}.jpg`;
-  const file = fs.createWriteStream(path);
+  const memes = fs.createWriteStream(path);
+  // Download the images
   https.get(downloadedImages[i], function (response) {
-    response.pipe(file);
+    response.pipe(memes);
   });
-}
 
-console.log('Success!');
+  console.log('Success!');
+}
