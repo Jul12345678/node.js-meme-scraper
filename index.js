@@ -21,6 +21,7 @@ fs.mkdir('./memes', { recursive: true }, (err) => {
 // The async and await keywords enable asynchronous, promise-based behavior to be written in a cleaner style, avoiding the need to explicitly configure promise chains.
 const main = async () => {
   // The Fetch API accesses resources across the network. You can make HTTP requests (using GET, POST and other methods), download, and upload files.
+  // Get the HTML
   const response = await fetch(
     'https://memegen-link-examples-upleveled.netlify.app/',
   );
@@ -33,11 +34,15 @@ const main = async () => {
     // Map = similar to object
     .map(function (i, el) {
       // this === el
+
       return $(this).find('img').attr('src'); // attr for images (not text())
     })
+
+    // Put everything above into array
     .toArray();
 
-  // console.log(memes.slice(0, 10));
+  /* array.slice(0, n) gives you n-amount of links:
+   console.log(memes.slice(0, 10)); */
 };
 
 // Download Images into existing (or created) "./memes" folder
@@ -46,6 +51,7 @@ for (let i = 0; i < 10; i++) {
   const path =
     i === 9 ? `./memes/memes${i + 1}.jpg` : `./memes/memes0${i + 1}.jpg`;
   const memes = fs.createWriteStream(path);
+
   // Download the images
   https.get(downloadedImages[i], function (response) {
     response.pipe(memes);
