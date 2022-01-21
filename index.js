@@ -36,20 +36,27 @@ const main = async () => {
       // this === el
 
       return $(this).find('img').attr('src'); // attr for images (not text())
-    })
+    });
 
-    // Put everything above into array
-    .toArray();
+  // Put everything above into array
+  // .toArray();
 
-  /* array.slice(0, n) gives you n-amount of links:
-   console.log(memes.slice(0, 10)); */
+  // array.slice(0, n) gives you n-amount of links:
+  // console.log(memes.slice(0, 10));
 };
 
 // Download Images into existing (or created) "./memes" folder
-for (let i = 0; i < 10; i++) {
+// The 'for' statement creates a loop that consists of three optional expressions, enclosed in parentheses and separated by semicolons, followed by a statement
+/* Syntax: for ([initialization]; [condition]; [final-expression])
+   statement */
+/* The following for statement starts by declaring the variable i and initializing it to 0. It checks that i is less than ten, performs the two succeeding statements, and increments i by 1 after each pass through the loop.*/
+let i = 0;
+for (; i < 10; i++) {
   // Rename Images
   const path =
+    // i === 9 ? '.......' ${i + 1} to avoid 010.jpg
     i === 9 ? `./memes/memes${i + 1}.jpg` : `./memes/memes0${i + 1}.jpg`;
+
   const memes = fs.createWriteStream(path);
 
   // Download the images
