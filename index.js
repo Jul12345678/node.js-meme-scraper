@@ -4,7 +4,6 @@ import cheerio from 'cheerio';
 import fetch from 'node-fetch';
 
 // Declare downloadImages in empty array for later use
-const downloadedImages = [];
 
 // Create "memes" folder if it doesn't exist
 // The fs.mkdir() method in Node.js is used to create a directory asynchronously.
@@ -36,33 +35,29 @@ const main = async () => {
       // this === el
 
       return $(this).find('img').attr('src'); // attr for images (not text())
+    })
+    .toArray();
+  const tenImages = memes.slice(0, 10);
+
+  for (let i = 0; i < 10; i++) {
+    // Add 0 before an image number if necessary
+    const path =
+      i === 9 ? `./memes/memes${i + 1}.jpg` : `./memes/memes0${i + 1}.jpg`;
+    const file = fs.createWriteStream(path);
+    https.get(tenImages[i], function (responses) {
+      responses.pipe(file);
     });
+  }
 
   // Put everything above into array
-  // .toArray();
 
   // array.slice(0, n) gives you n-amount of links:
   // console.log(memes.slice(0, 10));
+  console.log('Success');
 };
-
+main();
 // Download Images into existing (or created) "./memes" folder
 // The 'for' statement creates a loop that consists of three optional expressions, enclosed in parentheses and separated by semicolons, followed by a statement
 /* Syntax: for ([initialization]; [condition]; [final-expression])
    statement */
 /* The following for statement starts by declaring the variable i and initializing it to 0. It checks that i is less than ten, performs the two succeeding statements, and increments i by 1 after each pass through the loop.*/
-let i = 0;
-for (; i < 10; i++) {
-  // Rename Images
-  const path =
-    // i === 9 ? '.......' ${i + 1} to avoid 010.jpg
-    i === 9 ? `./memes/memes${i + 1}.jpg` : `./memes/memes0${i + 1}.jpg`;
-
-  const memes = fs.createWriteStream(path);
-
-  // Download the images
-  https.get(downloadedImages[i], function (response) {
-    response.pipe(memes);
-  });
-
-  console.log('Success!');
-}
